@@ -1,3 +1,28 @@
+server:
+  port: 8081
+
+
 spring:
-  application:
-    name: account
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/accountdb}
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+
+  # Cache
+  cache:
+    type: redis
+
+kafka:
+  bootstrap-servers: ${KAFKA_BOOTSTRAP:localhost:9092}
+  consumer:
+    group-id: account-service-group
+
+
+logging:
+  level:
+    root: INFO
+    com.example: DEBUG
+
+
